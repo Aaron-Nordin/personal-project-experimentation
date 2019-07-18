@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-export default class Translation extends Component {
+export default class UserLibDisplay extends Component {
     render() {
         return (
             <div>
