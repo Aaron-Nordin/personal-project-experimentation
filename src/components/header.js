@@ -3,7 +3,7 @@ import React from "react"
 export default function Header() {
     return (
         <div>
-            Header
+            {"DNA Transcription & DNA Translation Tool"}
         </div>
     )
 }

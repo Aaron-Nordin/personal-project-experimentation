@@ -22,9 +22,8 @@ module.exports = {
 
   editName(req, res) {
       let {id} = req.params
-      let {name} = req.body
       let index = userLib.findIndex(x => x.id === +id)
-      userLib[index].name = name
+      userLib[index] = {...userLib[index], ...req.body}
       res.status(200).send(userLib)
   }
 };
