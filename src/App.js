@@ -50,13 +50,13 @@ class App extends Component {
   }
 
   handleName(userName) {
-    this.setState({ userInput: { DNA: userName } });
+    this.setState({ userInput: { name: userName } });
     // if (this.state.userInput.name !== "Default" && this.state.userInput.DNA !== "Please add DNA bases") {
     //   this.setState(userArr: [...userArr, userInput])
     // }
   }
   handleDNA(userDNA) {
-    this.setState({ userInput: { DNA: userDNA } });
+    this.setState({ userInput: { DNA: userDNA.toUpperCase() } });
   }
 
   //Fn for translate button in TLateButton.js
@@ -64,8 +64,9 @@ class App extends Component {
     return "tLateFn temp";
   }
   //Fn for translate button in TLateButton.js
-  tScripFn() {
-    return "tScripFn temp";
+  tScripFn(str) {
+    str = this.state.userInput.DNA
+    str.map(x => x === "T" ? x = "U" : null)
   }
 
   //---------------------AXIOS PROMISES-------------------------------------//
