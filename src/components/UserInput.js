@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import TLateButton from "./TLateButton";
-import TScripButton from "./TScripButton";
-import BothButton from "./BothButton";
 
 export default class UserInput extends Component {
   constructor() {
@@ -30,10 +27,24 @@ export default class UserInput extends Component {
     this.setState({ name: val });
   }
 
-  handleTScriptClick = () => {
-    this.props.tScriptFn(this.props.userObj.DNA)
-    this.props.create(this.props.userObj)
-}
+  handleTLateClick()  {
+    let aa = this.props.tLateFn(this.state.DNA)
+    this.setState({aminoAcids: aa})
+    this.props.createFn(this.state)
+  }
+
+  handleTScriptClick () {
+    let rna = this.props.tScriptFn(this.state.DNA);
+    this.setState({RNA: rna})
+    this.props.createFn(this.state);
+  };
+
+  handleBothClick() {
+    let aa = this.props.tLateFn(this.state.DNA)
+    let rna = this.props.tScriptFn(this.state.DNA);
+    this.setState({aminoAcids: aa, RNA: rna})
+    this.props.createFn(this.state)
+  }
 
   render() {
     return (
@@ -53,22 +64,9 @@ export default class UserInput extends Component {
           />
         </div>
         <div className="userIn-buttons">
-          <TLateButton
-            tLateFn={this.props.tLateFn}
-            userObj={this.state}
-            create={this.create}
-          />
+          <button onClick={() => this.handleTLateClick()}>Translate DNA</button>
           <button onClick={() => this.handleTScriptClick()}>Transcribe DNA</button>
-
-          {/* <TScripButton 
-            tScripFn={this.props.tScripFn} 
-            userObj={this.state}
-            create={this.create} /> */}
-          <BothButton
-            tLateFn={this.props.tLateFn}
-            tScripFn={this.props.tScripFn}
-            userObj={this.state}
-            create={this.create}
+          <button onClick={() => this.handleBothClick()}>Both</button>
           />
         </div>
       </div>
