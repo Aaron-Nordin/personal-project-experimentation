@@ -6,6 +6,7 @@ import UserInput from "./components/UserInput";
 import Transcription from "./components/Transcription";
 import Translation from "./components/Translation";
 import UserLibrary from "./components/UserLibrary";
+import { codonDict } from "./components/CodonDict";
 
 class App extends Component {
   constructor() {
@@ -61,12 +62,13 @@ class App extends Component {
 
   //Fn for translate button in TLateButton.js
   tLateFn() {
-    return "tLateFn temp";
+    return this.state.userInput.DNA.match(/.{1,2}/g).map(x =>
+      codonDict(x).join(""));
   }
   //Fn for translate button in TLateButton.js
   tScripFn(str) {
-    str = this.state.userInput.DNA
-    str.map(x => x === "T" ? x = "U" : null)
+    str = this.state.userInput.DNA;
+    str.map(x => (x === "T" ? (x = "U") : null));
   }
 
   //---------------------AXIOS PROMISES-------------------------------------//
