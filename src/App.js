@@ -23,7 +23,20 @@ class App extends Component {
     this.tScripFn = this.tScripFn.bind(this);
     this.handleName = this.handleName.bind(this);
     this.handleDNA = this.handleDNA.bind(this);
+    this.saveFn = this.saveFn.bind(this);
+    this.deleteFn = this.deleteFn.bind(this);
   }
+
+  //--------------------COMPONENTDIDMOUNT()------------------------------//
+
+  componentDidMount() {
+    //Gets [] from server/userLib
+    axios.get("./api/geneticmaterial").then(res => {
+      this.setState({ userArr: res.data });
+    });
+  }
+
+  //-----------------------FUNCTIONS-------------------------------------//
 
   resetUserInput() {
     this.setState({
@@ -36,18 +49,11 @@ class App extends Component {
     });
   }
 
-  componentDidMount() {
-    //Gets [] from server/userLib
-    axios.get("./api/geneticmaterial").then(res => {
-      this.setState({ userArr: res.data });
-    });
-  }
-
   handleName(userName) {
     this.setState({ userInput: { DNA: userName } });
     // if (this.state.userInput.name !== "Default" && this.state.userInput.DNA !== "Please add DNA bases") {
     //   this.setState(userArr: [...userArr, userInput])
-    // } 
+    // }
   }
   handleDNA(userDNA) {
     this.setState({ userInput: { DNA: userDNA } });
@@ -60,6 +66,20 @@ class App extends Component {
   //Fn for translate button in TLateButton.js
   tScripFn() {
     return "tScripFn temp";
+  }
+
+  //---------------------AXIOS PROMISES-------------------------------------//
+
+  saveFn(id, body) {
+    axios.put(`/api/geneticmaterial/${id}`, body).then(res => {
+      this.setState({ userArr: res.data });
+    });
+  }
+
+  deleteFn(id) {
+    axios.delete(`/api/geneticmaterial/${id}`).then(res => {
+      this.setState({ userArr: res.data });
+    });
   }
 
   render() {
@@ -75,7 +95,11 @@ class App extends Component {
         />
         <Transcription userArr={this.state.userArr} />
         <Translation userArr={this.state.userArr} />
-        <UserLibrary userArr={this.state.userArr}/>
+        <UserLibrary
+          userArr={this.state.userArr}
+          saveFn={this.saveFn}
+          deleteFn={this.deleteFn}
+        />
       </div>
     );
   }

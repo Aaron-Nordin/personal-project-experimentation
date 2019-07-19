@@ -7,11 +7,10 @@ export default class UserLibrary extends Component {
       <div className="user-library-map">
         {this.props.userArr.map(el => (
           <UserLibDisplay
-            id={el.id}
-            name={el.name}
-            DNA={el.DNA}
-            RNA={el.RNA}
-            aminoAcids={el.aminoAcids}
+            key={el.id}
+            obj={el}
+            saveFn={this.props.saveFn}
+            deleteFn={this.props.deleteFn}
           />
         ))}
       </div>
