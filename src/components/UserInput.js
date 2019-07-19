@@ -27,23 +27,23 @@ export default class UserInput extends Component {
     this.setState({ name: val });
   }
 
-  async handleTLateClick()  {
-    let aa = this.props.tLateFn(this.state.DNA)
-    await this.setState({aminoAcids: aa})
-    this.props.createFn(this.state)
+  async handleTLateClick() {
+    let aa = this.props.tLateFn(this.state.DNA);
+    await this.setState({ aminoAcids: aa });
+    this.props.createFn(this.state);
   }
 
-  async handleTScriptClick () {
+  async handleTScriptClick() {
     let rna = this.props.tScriptFn(this.state.DNA);
-    await this.setState({RNA: rna})
+    await this.setState({ RNA: rna });
     this.props.createFn(this.state);
-  };
+  }
 
   async handleBothClick() {
-    let aa = this.props.tLateFn(this.state.DNA)
+    let aa = this.props.tLateFn(this.state.DNA);
     let rna = this.props.tScriptFn(this.state.DNA);
-    await this.setState({aminoAcids: aa, RNA: rna})
-    this.props.createFn(this.state)
+    await this.setState({ aminoAcids: aa, RNA: rna });
+    this.props.createFn(this.state);
   }
 
   render() {
@@ -64,8 +64,8 @@ export default class UserInput extends Component {
           />
         </div>
         <div className="userIn-buttons">
-          <button onClick={() => this.handleTLateClick()}>Translate DNA</button>
           <button onClick={() => this.handleTScriptClick()}>Transcribe DNA</button>
+          <button onClick={() => this.handleTLateClick()}>Translate DNA</button>
           <button onClick={() => this.handleBothClick()}>Both</button>
         </div>
       </div>

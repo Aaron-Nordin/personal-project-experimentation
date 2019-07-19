@@ -13,12 +13,6 @@ class App extends Component {
     super();
     this.state = {
       userArr: [],
-      userInput: {
-        name: "Default",
-        DNA: "Please add DNA bases",
-        RNA: "Please transcribe your DNA",
-        aminoAcids: "Please translate your DNA"
-      }
     };
     this.tLateFn = this.tLateFn.bind(this);
     this.tScripFn = this.tScripFn.bind(this);
@@ -38,32 +32,10 @@ class App extends Component {
 
   //-----------------------FUNCTIONS-------------------------------------//
 
-  resetUserInput() {
-    this.setState({
-      userInput: {
-        name: "Default",
-        DNA: "Please add DNA bases",
-        RNA: "Please transcribe your DNA",
-        aminoAcids: "Please translate your DNA"
-      }
-    });
-  }
-
   //Fn for translate button in TLateButton.js
   tLateFn(dna) {
     let codons = dna.match(/.{1,3}/g)
-    console.log(codons)
     return codons.map(c => codonDict[c])
-
-    // let aa = "";
-    // for (let i = 0; i < dna.length; i+3) {
-    //   let codon = dna.charAt(i, i+1, i+2)
-    //   console.log(codon)
-    //   aa = aa + codonDict[codon]
-    //   console.log(codon)
-    //   console.log(aa)
-    // }
-    // return aa
   }
 
   //Fn for translate button in TLateButton.js
@@ -80,7 +52,6 @@ class App extends Component {
   }
 
   createFn(body) {
-    console.log(body)
     axios.post("/api/geneticmaterial/", body).then(res => {
       this.setState({ userArr: res.data });
     });
@@ -91,6 +62,8 @@ class App extends Component {
       this.setState({ userArr: res.data });
     });
   }
+
+  //----------------------------RENDER-----------------------------------//
 
   render() {
     return (
