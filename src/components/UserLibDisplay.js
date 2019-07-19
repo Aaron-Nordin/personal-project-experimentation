@@ -1,5 +1,25 @@
 import React, { Component } from "react";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import DeleteIcon from "@material-ui/icons/Delete";
 
+//----------------------STYLE (MAT UI)-----------------------//
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1)
+  },
+  leftIcon: {
+    marginRight: theme.spacing(1)
+  },
+  rightIcon: {
+    marginLeft: theme.spacing(1)
+  },
+  iconSmall: {
+    fontSize: 20
+  }
+}));
+
+//----------------------------------------------------------//
 export default class UserLibDisplay extends Component {
   constructor(props) {
     super(props);
@@ -33,9 +53,10 @@ export default class UserLibDisplay extends Component {
   }
 
   render() {
+    const classes = useStyles; //For MatUI stuffs
     return (
       <div className="user-Lib-Display">
-          <div className="search"></div>
+        <div className="search" />
         <div className="user-Lib-Dis-Name">
           {this.state.editing ? (
             <div>
@@ -68,9 +89,15 @@ export default class UserLibDisplay extends Component {
           )}
           <h2>{this.props.obj.RNA}</h2>
           <h2>{this.props.obj.aminoAcids}</h2>
-          <button onClick={() => this.props.deleteFn(this.props.obj.id)}>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+            onClick={() => this.props.deleteFn(this.props.obj.id)}
+          >
             Delete Entry
-          </button>
+            <DeleteIcon className={classes.rightIcon} />
+          </Button>
         </div>
       </div>
     );
