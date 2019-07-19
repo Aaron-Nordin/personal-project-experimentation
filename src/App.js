@@ -7,6 +7,8 @@ import Transcription from "./components/Transcription";
 import Translation from "./components/Translation";
 import UserLibrary from "./components/UserLibrary";
 import { codonDict } from "./components/CodonDict";
+// import {ToastContainer, toast} from "react-toastify"
+// import "react-toastify/dist/ReactToastify.css"
 
 class App extends Component {
   constructor() {
@@ -20,6 +22,7 @@ class App extends Component {
     this.deleteFn = this.deleteFn.bind(this);
     this.createFn = this.createFn.bind(this);
   }
+  // notify = () => toast("wow")
 
   //--------------------COMPONENTDIDMOUNT()------------------------------//
 
@@ -63,17 +66,26 @@ class App extends Component {
     });
   }
 
+  searchFn(name) {
+    axios.get(`/api/geneticmaterialname?name=${name}`).then(res => {
+      this.setState({userArr: res.data})
+    })
+  }
+
   //----------------------------RENDER-----------------------------------//
 
   render() {
     return (
       <div className="App">
+        {/* <button onClick={this.notify("wow")}>wowz</button>
+        <ToastContainer containerId={'A'}/> */}
         <Header />
         <UserInput
           userArr={this.state.userArr}
           tLateFn={this.tLateFn}
           tScriptFn={this.tScripFn}
           createFn={this.createFn}
+          searchFn={this.searchFn}
         />
         <Transcription userArr={this.state.userArr} />
         <Translation userArr={this.state.userArr} />

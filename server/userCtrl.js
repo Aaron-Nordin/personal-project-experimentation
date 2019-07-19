@@ -25,5 +25,11 @@ module.exports = {
       let index = userLib.findIndex(x => x.id === +id)
       userLib[index] = {...userLib[index], ...req.body}
       res.status(200).send(userLib)
+  },
+
+  search(req, res) {
+    let {name} = req.query
+    let index = userLib.findIndex(x => x.name === name)
+    res.status(200).send(userLib[index])
   }
 };

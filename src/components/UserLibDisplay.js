@@ -35,6 +35,7 @@ export default class UserLibDisplay extends Component {
   render() {
     return (
       <div className="user-Lib-Display">
+          <div className="search"></div>
         <div className="user-Lib-Dis-Name">
           {this.state.editing ? (
             <div>

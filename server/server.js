@@ -10,3 +10,5 @@ app.get("/api/geneticmaterial", userCtrl.getInitialLib)
 app.post("/api/geneticmaterial", userCtrl.addData)
 app.delete("/api/geneticmaterial/:id", userCtrl.deleteData)
 app.put("/api/geneticmaterial/:id", userCtrl.editName)
+
+app.get("/api/geneticmaterialname", userCtrl.search)
