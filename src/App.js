@@ -14,7 +14,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      userArr: [],
+      userArr: []
     };
     this.tLateFn = this.tLateFn.bind(this);
     this.tScripFn = this.tScripFn.bind(this);
@@ -37,21 +37,27 @@ class App extends Component {
 
   //Fn for translate button in TLateButton.js
   tLateFn(dna) {
-    let codons = dna.match(/.{1,3}/g)
-    return codons.map(c => codonDict[c])
+    let codons = dna.match(/.{1,3}/g);
+    return codons.map(c => codonDict[c]);
   }
 
   //Fn for translate button in TLateButton.js
   tScripFn(dna) {
-    return dna.split("").map(x => (x === "T" ? (x = "U") : null)).join("");
+    return dna
+      .split("")
+      .map(x => (x === "T" ? (x = "U") : null))
+      .join("");
   }
 
   //---------------------AXIOS PROMISES-------------------------------------//
 
   deleteFn(id) {
-    axios.delete(`/api/geneticmaterial/${id}`).then(res => {
-      this.setState({ userArr: res.data });
-    });
+    axios
+      .delete(`/api/geneticmaterial/${id}`)
+      .then(res => {
+        this.setState({ userArr: res.data });
+      })
+      .catch(() => alert("Nope"));
   }
 
   createFn(body) {
@@ -66,10 +72,14 @@ class App extends Component {
     });
   }
 
+  //QUERY
   searchFn(name) {
-    axios.get(`/api/geneticmaterialname?name=${name}`).then(res => {
-      this.setState({userArr: res.data})
-    })
+    axios
+      .get(`/api/geneticmaterialname?name=${name}`)
+      .then(res => {
+        this.setState({ userArr: res.data });
+      })
+      .catch(() => alert("Nah"));
   }
 
   //----------------------------RENDER-----------------------------------//

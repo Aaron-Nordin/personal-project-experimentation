@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee&display=swap');
+
+html {
+  overflow-wrap: break-word;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
 
 .App-header {
   background-color: #282c34;
@@ -19,15 +20,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body, html {
+  background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/qAgrZII/videoblocks-dna-molecule-in-water-3d-illustration-over-white-plexus-background-hd_ss6vnz0xb_thumbnail-full01.png")
 }
