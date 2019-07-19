@@ -22,8 +22,6 @@ class App extends Component {
     };
     this.tLateFn = this.tLateFn.bind(this);
     this.tScripFn = this.tScripFn.bind(this);
-    this.handleName = this.handleName.bind(this);
-    this.handleDNA = this.handleDNA.bind(this);
     this.saveFn = this.saveFn.bind(this);
     this.deleteFn = this.deleteFn.bind(this);
   }
@@ -50,37 +48,38 @@ class App extends Component {
     });
   }
 
-  handleName(userName) {
-    this.setState({ userInput: { name: userName } });
-    // if (this.state.userInput.name !== "Default" && this.state.userInput.DNA !== "Please add DNA bases") {
-    //   this.setState(userArr: [...userArr, userInput])
-    // }
-  }
-  handleDNA(userDNA) {
-    this.setState({ userInput: { DNA: userDNA.toUpperCase() } });
+  //Fn for translate button in TLateButton.js
+  tLateFn(dna) {
+    let codon = "";
+    let aa = "";
+    while (dna.length > 2) {
+      codon = dna.splice(0, 3);
+      aa = aa + codonDict(codon);
+    }
+    return aa
   }
 
   //Fn for translate button in TLateButton.js
-  tLateFn() {
-    return this.state.userInput.DNA.match(/.{1,2}/g).map(x =>
-      codonDict(x).join(""));
-  }
-  //Fn for translate button in TLateButton.js
-  tScripFn(str) {
-    str = this.state.userInput.DNA;
-    str.map(x => (x === "T" ? (x = "U") : null));
+  tScripFn(dna) {
+    return dna.map(x => (x === "T" ? (x = "U") : null));
   }
 
   //---------------------AXIOS PROMISES-------------------------------------//
 
-  saveFn(id, body) {
-    axios.put(`/api/geneticmaterial/${id}`, body).then(res => {
+  deleteFn(id) {
+    axios.delete(`/api/geneticmaterial/${id}`).then(res => {
       this.setState({ userArr: res.data });
     });
   }
 
-  deleteFn(id) {
-    axios.delete(`/api/geneticmaterial/${id}`).then(res => {
+  createFn(body) {
+    axios.post("/api/geneticmaterial/", body).then(res => {
+      this.setState({ userArr: res.data });
+    });
+  }
+
+  saveFn(id, body) {
+    axios.put(`/api/geneticmaterial/${id}`, body).then(res => {
       this.setState({ userArr: res.data });
     });
   }
@@ -91,10 +90,9 @@ class App extends Component {
         <Header />
         <UserInput
           userArr={this.state.userArr}
-          handleName={this.handleName}
-          handleDNA={this.handleDNA}
           tLateFn={this.tLateFn}
           tScripFn={this.tScripFn}
+          createFn={this.createFn}
         />
         <Transcription userArr={this.state.userArr} />
         <Translation userArr={this.state.userArr} />

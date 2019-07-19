@@ -17,7 +17,7 @@ export default class UserLibDisplay extends Component {
   }
 
   handleDNA(val) {
-    this.setState({ DNA: val })
+    this.setState({ DNA: val });
   }
 
   handleName(val) {
@@ -25,7 +25,10 @@ export default class UserLibDisplay extends Component {
   }
 
   save() {
-    this.props.saveFn(this.props.obj.id, { name: this.state.name });
+    this.props.saveFn(this.props.obj.id, {
+      name: this.state.name,
+      DNA: this.state.DNA
+    });
     this.togEdit();
   }
 
@@ -40,8 +43,6 @@ export default class UserLibDisplay extends Component {
                 value={this.state.name}
                 onChange={e => this.handleName(e.target.value)}
               />
-              <button onClick={() => this.save()}>Save</button>
-              <button onClick={() => this.togEdit()}>Cancel</button>
             </div>
           ) : (
             <h2 onClick={() => this.togEdit()}>{this.props.obj.name}</h2>
