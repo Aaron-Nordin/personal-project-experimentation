@@ -1,0 +1,8 @@
+#tri-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    position: relative;
+    right: 0.3vw;
+}
