@@ -27,22 +27,22 @@ export default class UserInput extends Component {
     this.setState({ name: val });
   }
 
-  handleTLateClick()  {
+  async handleTLateClick()  {
     let aa = this.props.tLateFn(this.state.DNA)
-    this.setState({aminoAcids: aa})
+    await this.setState({aminoAcids: aa})
     this.props.createFn(this.state)
   }
 
-  handleTScriptClick () {
+  async handleTScriptClick () {
     let rna = this.props.tScriptFn(this.state.DNA);
-    this.setState({RNA: rna})
+    await this.setState({RNA: rna})
     this.props.createFn(this.state);
   };
 
-  handleBothClick() {
+  async handleBothClick() {
     let aa = this.props.tLateFn(this.state.DNA)
     let rna = this.props.tScriptFn(this.state.DNA);
-    this.setState({aminoAcids: aa, RNA: rna})
+    await this.setState({aminoAcids: aa, RNA: rna})
     this.props.createFn(this.state)
   }
 
@@ -67,7 +67,6 @@ export default class UserInput extends Component {
           <button onClick={() => this.handleTLateClick()}>Translate DNA</button>
           <button onClick={() => this.handleTScriptClick()}>Transcribe DNA</button>
           <button onClick={() => this.handleBothClick()}>Both</button>
-          />
         </div>
       </div>
     );

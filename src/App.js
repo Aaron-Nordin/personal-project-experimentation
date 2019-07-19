@@ -24,6 +24,7 @@ class App extends Component {
     this.tScripFn = this.tScripFn.bind(this);
     this.saveFn = this.saveFn.bind(this);
     this.deleteFn = this.deleteFn.bind(this);
+    this.createFn = this.createFn.bind(this);
   }
 
   //--------------------COMPONENTDIDMOUNT()------------------------------//
@@ -50,18 +51,24 @@ class App extends Component {
 
   //Fn for translate button in TLateButton.js
   tLateFn(dna) {
-    let codon = "";
-    let aa = "";
-    while (dna.length > 2) {
-      codon = dna.splice(0, 3);
-      aa = aa + codonDict(codon);
-    }
-    return aa
+    let codons = dna.match(/.{1,3}/g)
+    console.log(codons)
+    return codons.map(c => codonDict[c])
+
+    // let aa = "";
+    // for (let i = 0; i < dna.length; i+3) {
+    //   let codon = dna.charAt(i, i+1, i+2)
+    //   console.log(codon)
+    //   aa = aa + codonDict[codon]
+    //   console.log(codon)
+    //   console.log(aa)
+    // }
+    // return aa
   }
 
   //Fn for translate button in TLateButton.js
   tScripFn(dna) {
-    return dna.map(x => (x === "T" ? (x = "U") : null));
+    return dna.split("").map(x => (x === "T" ? (x = "U") : null)).join("");
   }
 
   //---------------------AXIOS PROMISES-------------------------------------//
@@ -73,6 +80,7 @@ class App extends Component {
   }
 
   createFn(body) {
+    console.log(body)
     axios.post("/api/geneticmaterial/", body).then(res => {
       this.setState({ userArr: res.data });
     });
@@ -91,7 +99,7 @@ class App extends Component {
         <UserInput
           userArr={this.state.userArr}
           tLateFn={this.tLateFn}
-          tScripFn={this.tScripFn}
+          tScriptFn={this.tScripFn}
           createFn={this.createFn}
         />
         <Transcription userArr={this.state.userArr} />

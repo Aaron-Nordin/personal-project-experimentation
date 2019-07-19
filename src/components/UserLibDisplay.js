@@ -65,6 +65,8 @@ export default class UserLibDisplay extends Component {
           ) : (
             <h2 onClick={() => this.togEdit()}>{this.props.obj.DNA}</h2>
           )}
+          <h2>{this.props.obj.RNA}</h2>
+          <h2>{this.props.obj.aminoAcids}</h2>
           <button onClick={() => this.props.deleteFn(this.props.obj.id)}>
             Delete Entry
           </button>
