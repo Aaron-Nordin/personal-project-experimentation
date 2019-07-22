@@ -3,6 +3,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "./UserLibDisplay.css";
+import KoalaFacts from "./KoalaFacts";
 
 //--------------------------STYLE (MAT UI)---------------------------//
 
@@ -60,19 +61,26 @@ export default class UserLibDisplay extends Component {
 
   render() {
     const classes = useStyles; //For MatUI stuffs
-    let {name, DNA, RNA, aminoAcids} = this.state
+    let { name, DNA, RNA, aminoAcids } = this.state;
     return (
       <div className="user-Lib-Display">
         <div className="search" />
         <div className="user-Lib-Dis-Name">
           {this.state.editing ? (
-            <div>
+            <div className="edit">
+              <KoalaFacts/>
               <input
                 className="input-name-edit"
                 type="text"
                 value={name}
                 onChange={e => this.handleName(e.target.value)}
               />
+              <button id="save-button" onClick={() => this.save()}>
+                Save
+              </button>
+              <button id="cancel-button" onClick={() => this.togEdit()}>
+                Cancel
+              </button>
             </div>
           ) : (
             <h2>
@@ -86,25 +94,6 @@ export default class UserLibDisplay extends Component {
           )}
         </div>
         <div className="user-Lib-Dis-DNA">
-          {this.state.editing ? (
-            <div className="edit">
-              <input
-                className="input-DNA-edit"
-                type="text"
-                value={this.state.DNA}
-                onChange={e => this.handleDNA(e.target.value)}
-              />
-              <button onClick={() => this.save()}>Save</button>
-              <button onClick={() => this.togEdit()}>Cancel</button>
-            </div>
-          ) : (
-            <>
-              <h3 className="titles">DNA Sequence</h3>
-              <h2 className="DNA-block" onClick={() => this.togEdit()}>
-                {this.props.obj.DNA}
-              </h2>
-            </>
-          )}
           <h3 className="titles">DNA Sequence</h3>
           <h2 className="DNA-block">{DNA}</h2>
           <h3 className="titles">RNA Sequence</h3>

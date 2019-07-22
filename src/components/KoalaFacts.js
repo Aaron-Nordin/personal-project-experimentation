@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./KoalaFacts.css"
+import "./KoalaFacts.css";
 
 export default class KoalaFacts extends Component {
   constructor() {
@@ -9,6 +9,7 @@ export default class KoalaFacts extends Component {
     };
   }
 
+  //Koala pic when truth: true, text when false
   togTruth() {
     this.setState({ truth: !this.state.truth });
   }
@@ -19,7 +20,7 @@ export default class KoalaFacts extends Component {
         {this.state.truth ? (
           <div>
             <p onClick={() => this.togTruth()}>
-              Koalas are fucking horrible animals. They have one of the smallest
+              Koalas are [redacted] horrible animals. They have one of the smallest
               brain to body ratios of any mammal, additionally - their brains
               are smooth. A brain is folded to increase the surface area for
               neurons. If you present a koala with leaves plucked from a branch,
@@ -31,9 +32,9 @@ export default class KoalaFacts extends Component {
               reasons for their primitive brains is the fact that additionally
               to being poisonous, eucalyptus leaves (the only thing they eat)
               have almost no nutritional value. They can't afford the extra
-              energy to think, they sleep more than 80% of their fucking lives.
+              energy to think, they sleep more than 80% of their [redacted] lives.
               When they are awake all they do is eat, shit and occasionally
-              scream like fucking satan. Because eucalyptus leaves hold such
+              scream like [redacted] satan. Because eucalyptus leaves hold such
               little nutritional value, koalas have to ferment the leaves in
               their guts for days on end. Unlike their brains, they have the
               largest hind gut to body ratio of any mammal. Many herbivorous
@@ -44,7 +45,7 @@ export default class KoalaFacts extends Component {
               others have enlarged molars that distribute the wear and break
               down plant matter more efficiently... Koalas are no exception,
               when their teeth erode down to nothing, they resolve the situation
-              by starving to death, because they're fucking terrible animals.
+              by starving to death, because they're [redacted] terrible animals.
               Being mammals, koalas raise their joeys on milk (admittedly, one
               of the lowest milk yields to body ratio... There's a trend here).
               When the young joey needs to transition from rich, nourishing
@@ -68,14 +69,14 @@ export default class KoalaFacts extends Component {
               higher than average quantity of cerebrospinal fluid in their
               brains. This is to protect their brains from injury... should they
               fall from a tree. An animal so thick it has its own little built
-              in special ed helmet. I fucking hate them. Tldr; Koalas are
+              in special ed helmet. I [redacted] hate them. Tldr; Koalas are
               stupid, leaky, STI riddled sex offenders. But, hey. They look
               cute. If you ignore the terrifying snake eyes and terrifying fee
             </p>
           </div>
         ) : (
           <img
-            id="koala"
+            className="koala"
             src="http://pngimg.com/uploads/koala/koala_PNG6.png"
             alt="Koala"
             onClick={() => this.togTruth()}

@@ -1,19 +1,19 @@
 .header {
-    padding: 10px 16px;
-    background-color: rgba(0, 28, 85, 0.781);
-    color: white;
-    position: fixed;
-    top: 0px;
-    width: 100vw;
-    height: 15vh;
-    font-size: 36px;
-    font-family: "Bungee";
-    margin-bottom: 10px;
-    z-index: 100;
+  padding: 10px 16px;
+  background-color: rgba(0, 28, 85, 0.781);
+  color: white;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 15vh;
+  font-size: 36px;
+  font-family: "Bungee";
+  margin-bottom: 10px;
+  z-index: 100;
 }
 
 .header-elements {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

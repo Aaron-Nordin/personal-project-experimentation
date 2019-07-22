@@ -13,7 +13,6 @@ import "./UserInput.css";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    flexWrap: "wrap"
   },
   margin: {
     margin: theme.spacing(1)
@@ -114,7 +113,7 @@ export default class UserInput extends Component {
                   id="tri-button"
                   variant="contained"
                   color="primary"
-                  aria-label="Full-width contained primary button group"
+                  style={{boxShadow: "none"}}
                 >
                   <Button onClick={() => this.handleTScriptClick()}>
                     Transcribe DNA

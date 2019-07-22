@@ -1,4 +1,8 @@
-#koala {
-    
-    height: 150px;
+.koala {
+  height: 150px;
+  transition: 0.5s;
+}
+.koala:hover {
+  opacity: 0;
+  transform: scale(3) rotate(720deg);
 }

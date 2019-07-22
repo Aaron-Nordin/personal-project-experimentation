@@ -1,20 +1,23 @@
 .edit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
-.RNA-block, .AA-block, .DNA-block, .input-DNA-edit {
+.RNA-block,
+.AA-block,
+.DNA-block {
   height: 120px;
   width: 85vw;
-  border: 3px solid #00072D;
+  border: 3px solid #00072d;
   border-radius: 5px;
   padding: 5px;
   padding-left: 8px;
   padding-right: 8px;
   overflow: auto;
   background-color: rgba(50, 65, 181, 0.801);
-  color: rgb(240, 238, 238);
+  color: rgb(225, 249, 252);
   text-align: left;
 }
 
@@ -26,25 +29,32 @@
   align-items: center;
 }
 
-.user-Lib-Dis-Name, .input-name-edit {
+.user-Lib-Dis-Name,
+.input-name-edit {
   font-family: "Oswald", sans-serif;
   font-size: 14pt;
-  /* background-color: white; */
   color: rgb(1, 10, 58);
   border-top: 2px solid rgb(1, 10, 58);
   border-bottom: 2px solid rgb(1, 10, 58);
-  margin-top: 2vh;
+}
+
+.input-name-edit {
+  font-size: 20pt;
+  width: 40vw;
 }
 
 .titles {
   position: relative;
   right: 37vw;
 }
-#edit-name-button {
+
+#edit-name-button,
+#save-button,
+#cancel-button {
   position: relative;
   left: 1vw;
   bottom: 0.4vh;
-  background-color:#303F9F;
+  background-color: #303f9f;
   color: white;
   border: none;
   border-radius: 4px;
