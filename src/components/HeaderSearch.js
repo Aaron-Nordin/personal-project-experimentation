@@ -3,7 +3,6 @@ import "./HeaderSearch.css";
 import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import TextField from "@material-ui/core/TextField";
-import { blue } from "@material-ui/core/colors";
 
 //-------------------------------UI---------------------------------------//
 

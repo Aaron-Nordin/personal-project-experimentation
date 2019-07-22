@@ -6,6 +6,7 @@ import UserInput from "./components/UserInput";
 import Transcription from "./components/Transcription";
 import Translation from "./components/Translation";
 import UserLibrary from "./components/UserLibrary";
+import KoalaFacts from "./components/KoalaFacts";
 import { codonDict } from "./components/CodonDict";
 // import {ToastContainer, toast} from "react-toastify"
 // import "react-toastify/dist/ReactToastify.css"
@@ -104,6 +105,9 @@ class App extends Component {
           saveFn={this.saveFn}
           deleteFn={this.deleteFn}
         />
+        <footer>
+          <KoalaFacts/>
+        </footer>
       </div>
     );
   }
