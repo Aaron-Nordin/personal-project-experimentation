@@ -60,6 +60,7 @@ export default class UserLibDisplay extends Component {
 
   render() {
     const classes = useStyles; //For MatUI stuffs
+    let {name, DNA, RNA, aminoAcids} = this.state
     return (
       <div className="user-Lib-Display">
         <div className="search" />
@@ -69,7 +70,7 @@ export default class UserLibDisplay extends Component {
               <input
                 className="input-name-edit"
                 type="text"
-                value={this.state.name}
+                value={name}
                 onChange={e => this.handleName(e.target.value)}
               />
             </div>
@@ -105,11 +106,11 @@ export default class UserLibDisplay extends Component {
             </>
           )}
           <h3 className="titles">DNA Sequence</h3>
-          <h2 className="DNA-block">{this.props.obj.DNA}</h2>
+          <h2 className="DNA-block">{DNA}</h2>
           <h3 className="titles">RNA Sequence</h3>
-          <h2 className="RNA-block">{this.props.obj.RNA}</h2>
+          <h2 className="RNA-block">{RNA}</h2>
           <h3 className="titles">Amino Acid Sequence</h3>
-          <h2 className="AA-block">{this.props.obj.aminoAcids}</h2>
+          <h2 className="AA-block">{aminoAcids}</h2>
           <div>
             <Button
               variant="contained"

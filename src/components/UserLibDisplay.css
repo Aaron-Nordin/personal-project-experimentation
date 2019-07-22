@@ -7,9 +7,13 @@
 .RNA-block, .AA-block, .DNA-block, .input-DNA-edit {
   height: 120px;
   width: 85vw;
-  border: 1px solid #ccc;
+  border: 3px solid #00072D;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
   overflow: auto;
-  background-color: rgb(40, 85, 136, 0.801);
+  background-color: rgba(50, 65, 181, 0.801);
   color: rgb(240, 238, 238);
   text-align: left;
 }
@@ -26,9 +30,10 @@
   font-family: "Oswald", sans-serif;
   font-size: 14pt;
   /* background-color: white; */
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  margin-top: 2vh
+  color: rgb(1, 10, 58);
+  border-top: 2px solid rgb(1, 10, 58);
+  border-bottom: 2px solid rgb(1, 10, 58);
+  margin-top: 2vh;
 }
 
 .titles {

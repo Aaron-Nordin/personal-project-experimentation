@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import "./HeaderSearch.css";
 import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import TextField from "@material-ui/core/TextField";
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 
 const theme = createMuiTheme({
   palette: {
-    primary: blue
+    primary: { main: "#00072D" }
   }
 });
 
@@ -32,9 +32,9 @@ function HeaderSearch(props) {
       <ThemeProvider theme={theme}>
         <TextField
           className={classes.margin}
-          label="Search"
-          variant="outlined"
           id="header-searchbar"
+          label="Search Gene Name"
+          variant="outlined"
           onChange={e => props.searchFn(e.target.value)}
         />
       </ThemeProvider>

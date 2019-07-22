@@ -3,7 +3,6 @@ import UserLibDisplay from "./UserLibDisplay";
 
 export default class UserLibrary extends Component {
   render() {
-    console.log(this.props.userArr)
     return (
       <div className="user-library-map">
         {this.props.userArr[0] !== null

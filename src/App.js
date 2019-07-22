@@ -84,13 +84,14 @@ class App extends Component {
   //----------------------------RENDER-----------------------------------//
 
   render() {
+    let {userArr} = this.state.userArr
     return (
       <div className="App">
         {/* <button onClick={this.notify("wow")}>wowz</button>
         <ToastContainer containerId={'A'}/> */}
         <Header searchFn={this.searchFn} />
         <UserInput
-          userArr={this.state.userArr}
+          userArr={userArr}
           tLateFn={this.tLateFn}
           tScriptFn={this.tScripFn}
           createFn={this.createFn}

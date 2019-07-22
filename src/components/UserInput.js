@@ -69,7 +69,6 @@ export default class UserInput extends Component {
     await this.setState({ RNA: rna });
     this.props.createFn(this.state);
     this.setState({ name: "", DNA: "", RNA: "", aminoAcids: "" });
-
   }
 
   async handleBothClick() {
@@ -84,6 +83,7 @@ export default class UserInput extends Component {
 
   render() {
     const classes = useStyles;
+    let { name, DNA } = this.state;
     return (
       <div className="userIn">
         <div className={classes.root}>
@@ -94,7 +94,7 @@ export default class UserInput extends Component {
               variant="outlined"
               id="mui-theme-provider-outlined-input"
               onChange={e => this.handleName(e.target.value)}
-              value={this.state.name}
+              value={name}
             />
             <TextField
               className={classes.margin}
@@ -102,7 +102,7 @@ export default class UserInput extends Component {
               variant="outlined"
               id="mui-theme-provider-outlined-input"
               onChange={e => this.handleDNA(e.target.value)}
-              value={this.state.DNA}
+              value={DNA}
             />
           </ThemeProvider>
         </div>
