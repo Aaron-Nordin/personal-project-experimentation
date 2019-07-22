@@ -100,7 +100,7 @@ export default class UserLibDisplay extends Component {
           <h2 className="RNA-block">{RNA}</h2>
           <h3 className="titles">Amino Acid Sequence</h3>
           <h2 className="AA-block">{aminoAcids}</h2>
-          <div>
+          <div id="delete-button">
             <Button
               variant="contained"
               color="secondary"

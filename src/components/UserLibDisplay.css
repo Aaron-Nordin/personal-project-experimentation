@@ -19,6 +19,7 @@
   background-color: rgba(50, 65, 181, 0.801);
   color: rgb(225, 249, 252);
   text-align: left;
+  font-size: 14pt;
 }
 
 .user-Lib-Dis-DNA {
@@ -59,4 +60,7 @@
   border: none;
   border-radius: 4px;
   height: 25px;
+}
+#delete-button {
+  margin-bottom: 8vh;
 }
