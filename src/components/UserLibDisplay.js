@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
+import "./UserLibDisplay.css"
 
 //----------------------STYLE (MAT UI)-----------------------//
 const useStyles = makeStyles(theme => ({
@@ -85,19 +86,21 @@ export default class UserLibDisplay extends Component {
               <button onClick={() => this.togEdit()}>Cancel</button>
             </div>
           ) : (
-            <h2 onClick={() => this.togEdit()}>{this.props.obj.DNA}</h2>
+            <h2 className="DNA-block" onClick={() => this.togEdit()}>{this.props.obj.DNA}</h2>
           )}
-          <h2>{this.props.obj.RNA}</h2>
-          <h2>{this.props.obj.aminoAcids}</h2>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.props.deleteFn(this.props.obj.id)}
-          >
-            Delete Entry
-            <DeleteIcon className={classes.rightIcon} />
-          </Button>
+          <h2 className="RNA-block">{this.props.obj.RNA}</h2>
+          <h2 className="AA-block">{this.props.obj.aminoAcids}</h2>
+          <div>
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+              onClick={() => this.props.deleteFn(this.props.obj.id)}
+            >
+              Delete Entry
+              <DeleteIcon className={classes.rightIcon} />
+            </Button>
+          </div>
         </div>
       </div>
     );

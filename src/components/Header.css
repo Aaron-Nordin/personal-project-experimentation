@@ -6,4 +6,6 @@
     top: 0px;
     font-size: 36px;
     font-family: "Bungee";
+    margin-bottom: 10px;
+    z-index: 100;
 }
