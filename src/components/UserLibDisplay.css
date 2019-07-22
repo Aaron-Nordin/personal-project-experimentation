@@ -1,13 +1,17 @@
-.user-Lib-Dis-Name {
-  font-family: "Oswald", sans-serif;
-  font-size: 14pt;
+.edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.RNA-block, .AA-block, .DNA-block {
+.RNA-block, .AA-block, .DNA-block, .input-DNA-edit {
   height: 120px;
   width: 85vw;
   border: 1px solid #ccc;
   overflow: auto;
+  background-color: rgb(40, 85, 136, 0.801);
+  color: rgb(240, 238, 238);
+  text-align: left;
 }
 
 .user-Lib-Dis-DNA {
@@ -17,3 +21,13 @@
   flex-direction: column;
   align-items: center;
 }
+
+.user-Lib-Dis-Name, .input-name-edit {
+  font-family: "Oswald", sans-serif;
+  font-size: 14pt;
+  /* background-color: white; */
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  margin-top: 2vh
+}
+

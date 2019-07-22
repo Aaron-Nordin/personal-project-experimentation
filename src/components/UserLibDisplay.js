@@ -62,6 +62,7 @@ export default class UserLibDisplay extends Component {
           {this.state.editing ? (
             <div>
               <input
+                className="input-name-edit"
                 type="text"
                 value={this.state.name}
                 onChange={e => this.handleName(e.target.value)}
@@ -76,8 +77,9 @@ export default class UserLibDisplay extends Component {
         </div>
         <div className="user-Lib-Dis-DNA">
           {this.state.editing ? (
-            <div>
+            <div className="edit">
               <input
+                className="input-DNA-edit"
                 type="text"
                 value={this.state.DNA}
                 onChange={e => this.handleDNA(e.target.value)}

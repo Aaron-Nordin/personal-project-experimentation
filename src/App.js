@@ -21,6 +21,8 @@ class App extends Component {
     this.saveFn = this.saveFn.bind(this);
     this.deleteFn = this.deleteFn.bind(this);
     this.createFn = this.createFn.bind(this);
+    this.searchFn = this.searchFn.bind(this);
+
   }
   // notify = () => toast("wow")
 
@@ -43,10 +45,7 @@ class App extends Component {
 
   //Fn for translate button in TLateButton.js
   tScripFn(dna) {
-    return dna
-      .split("")
-      .map(x => (x === "T" ? (x = "U") : null))
-      .join("");
+    return dna.replace(/T/gi, "U")
   }
 
   //---------------------AXIOS PROMISES-------------------------------------//
@@ -89,7 +88,7 @@ class App extends Component {
       <div className="App">
         {/* <button onClick={this.notify("wow")}>wowz</button>
         <ToastContainer containerId={'A'}/> */}
-        <Header />
+        <Header searchFn={this.state.searchFn}/>
         <UserInput
           userArr={this.state.userArr}
           tLateFn={this.tLateFn}

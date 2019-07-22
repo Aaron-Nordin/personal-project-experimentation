@@ -2,10 +2,18 @@
     padding: 10px 16px;
     background-color: rgba(40, 85, 136, 0.801);
     color: white;
-    position: sticky;
+    position: fixed;
     top: 0px;
+    width: 100vw;
+    height: 15vh;
     font-size: 36px;
     font-family: "Bungee";
     margin-bottom: 10px;
     z-index: 100;
+}
+
+.header-elements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
