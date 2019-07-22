@@ -35,7 +35,7 @@ function HeaderSearch(props) {
           label="Search"
           variant="outlined"
           id="header-searchbar"
-          onChange={e => this.props.searchFn(e.target.value)}
+          onChange={e => props.searchFn(e.target.value)}
         />
       </ThemeProvider>
     </div>

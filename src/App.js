@@ -22,7 +22,6 @@ class App extends Component {
     this.deleteFn = this.deleteFn.bind(this);
     this.createFn = this.createFn.bind(this);
     this.searchFn = this.searchFn.bind(this);
-
   }
   // notify = () => toast("wow")
 
@@ -45,7 +44,7 @@ class App extends Component {
 
   //Fn for translate button in TLateButton.js
   tScripFn(dna) {
-    return dna.replace(/T/gi, "U")
+    return dna.replace(/T/gi, "U");
   }
 
   //---------------------AXIOS PROMISES-------------------------------------//
@@ -73,12 +72,13 @@ class App extends Component {
 
   //QUERY
   searchFn(name) {
-    axios
-      .get(`/api/geneticmaterialname?name=${name}`)
-      .then(res => {
-        this.setState({ userArr: res.data });
-      })
-      .catch(() => alert("Nah"));
+    if (name.length > 0)
+      axios
+        .get(`/api/geneticmaterialname?name=${name}`)
+        .then(res => {
+          this.setState({ userArr: res.data });
+        })
+        .catch(() => alert("Nah"));
   }
 
   //----------------------------RENDER-----------------------------------//
@@ -88,7 +88,7 @@ class App extends Component {
       <div className="App">
         {/* <button onClick={this.notify("wow")}>wowz</button>
         <ToastContainer containerId={'A'}/> */}
-        <Header searchFn={this.state.searchFn}/>
+        <Header searchFn={this.searchFn} />
         <UserInput
           userArr={this.state.userArr}
           tLateFn={this.tLateFn}

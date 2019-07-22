@@ -31,3 +31,17 @@
   margin-top: 2vh
 }
 
+.titles {
+  position: relative;
+  right: 37vw;
+}
+#edit-name-button {
+  position: relative;
+  left: 1vw;
+  bottom: 0.4vh;
+  background-color:#303F9F;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  height: 25px;
+}

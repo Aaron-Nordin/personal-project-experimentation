@@ -30,6 +30,6 @@ module.exports = {
   search(req, res) {
     let {name} = req.query
     let index = userLib.findIndex(x => x.name === name)
-    res.status(200).send(userLib[index])
+    res.status(200).send([userLib[index]])
   }
 };

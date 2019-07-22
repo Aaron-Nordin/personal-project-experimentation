@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
-import "./UserLibDisplay.css"
+import "./UserLibDisplay.css";
 
-//----------------------STYLE (MAT UI)-----------------------//
+//--------------------------STYLE (MAT UI)---------------------------//
+
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1)
@@ -20,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-//----------------------------------------------------------//
+//-------------------------------------------------------------------//
 export default class UserLibDisplay extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +33,8 @@ export default class UserLibDisplay extends Component {
       editing: false
     };
   }
+
+  //---------------------------FUNCTIONS----------------------------------//
 
   togEdit() {
     this.setState({ editing: !this.state.editing });
@@ -53,6 +56,8 @@ export default class UserLibDisplay extends Component {
     this.togEdit();
   }
 
+  //----------------------------RENDER-----------------------------------//
+
   render() {
     const classes = useStyles; //For MatUI stuffs
     return (
@@ -69,11 +74,15 @@ export default class UserLibDisplay extends Component {
               />
             </div>
           ) : (
-            <h2 onClick={() => this.togEdit()}>{this.props.obj.name}</h2>
+            <h2>
+              {this.props.obj.name}
+              <span>
+                <button id="edit-name-button" onClick={() => this.togEdit()}>
+                  Edit Name
+                </button>
+              </span>
+            </h2>
           )}
-          {/* <button onClick={() => this.props.deleteFn(this.props.obj.id)}>
-            Delete Entry
-          </button> */}
         </div>
         <div className="user-Lib-Dis-DNA">
           {this.state.editing ? (
@@ -88,9 +97,18 @@ export default class UserLibDisplay extends Component {
               <button onClick={() => this.togEdit()}>Cancel</button>
             </div>
           ) : (
-            <h2 className="DNA-block" onClick={() => this.togEdit()}>{this.props.obj.DNA}</h2>
+            <>
+              <h3 className="titles">DNA Sequence</h3>
+              <h2 className="DNA-block" onClick={() => this.togEdit()}>
+                {this.props.obj.DNA}
+              </h2>
+            </>
           )}
+          <h3 className="titles">DNA Sequence</h3>
+          <h2 className="DNA-block">{this.props.obj.DNA}</h2>
+          <h3 className="titles">RNA Sequence</h3>
           <h2 className="RNA-block">{this.props.obj.RNA}</h2>
+          <h3 className="titles">Amino Acid Sequence</h3>
           <h2 className="AA-block">{this.props.obj.aminoAcids}</h2>
           <div>
             <Button

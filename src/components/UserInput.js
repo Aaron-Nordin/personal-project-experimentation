@@ -8,6 +8,8 @@ import TextField from "@material-ui/core/TextField";
 import { blue } from "@material-ui/core/colors";
 import "./UserInput.css";
 
+//-------------------------------UI---------------------------------------//
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -24,6 +26,8 @@ const theme = createMuiTheme({
   }
 });
 
+//------------------------------------------------------------------------//
+
 export default class UserInput extends Component {
   constructor() {
     super();
@@ -34,6 +38,8 @@ export default class UserInput extends Component {
       aminoAcids: ""
     };
   }
+
+  //---------------------------FUNCTIONS----------------------------------//
 
   create() {
     this.props.createFn({
@@ -55,12 +61,15 @@ export default class UserInput extends Component {
     let aa = this.props.tLateFn(this.state.DNA);
     await this.setState({ aminoAcids: aa });
     this.props.createFn(this.state);
+    this.setState({ name: "", DNA: "", RNA: "", aminoAcids: "" });
   }
 
   async handleTScriptClick() {
     let rna = this.props.tScriptFn(this.state.DNA);
     await this.setState({ RNA: rna });
     this.props.createFn(this.state);
+    this.setState({ name: "", DNA: "", RNA: "", aminoAcids: "" });
+
   }
 
   async handleBothClick() {
@@ -68,7 +77,10 @@ export default class UserInput extends Component {
     let rna = this.props.tScriptFn(this.state.DNA);
     await this.setState({ aminoAcids: aa, RNA: rna });
     this.props.createFn(this.state);
+    this.setState({ name: "", DNA: "", RNA: "", aminoAcids: "" });
   }
+
+  //----------------------------RENDER-----------------------------------//
 
   render() {
     const classes = useStyles;
@@ -82,6 +94,7 @@ export default class UserInput extends Component {
               variant="outlined"
               id="mui-theme-provider-outlined-input"
               onChange={e => this.handleName(e.target.value)}
+              value={this.state.name}
             />
             <TextField
               className={classes.margin}
@@ -89,10 +102,11 @@ export default class UserInput extends Component {
               variant="outlined"
               id="mui-theme-provider-outlined-input"
               onChange={e => this.handleDNA(e.target.value)}
+              value={this.state.DNA}
             />
           </ThemeProvider>
         </div>
-          <Grid container spacing={3}>
+        <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
             <Grid container spacing={1} direction="column" alignItems="center">
               <Grid item>
