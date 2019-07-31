@@ -1,0 +1,7 @@
+-------------------------------------------------------
+IDEAS FOR DATA MANIPULATION
+-------------------------------------------------------
+- CG rich regions
+- ATG / AUG start codon identifiction
+- TAG, TAA, TGA / UAG, UAA, UGA stop codon identifiction
+

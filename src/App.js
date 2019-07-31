@@ -8,8 +8,6 @@ import Translation from "./components/Translation";
 import UserLibrary from "./components/UserLibrary";
 import KoalaFacts from "./components/KoalaFacts";
 import { codonDict } from "./components/CodonDict";
-// import {ToastContainer, toast} from "react-toastify"
-// import "react-toastify/dist/ReactToastify.css"
 
 class App extends Component {
   constructor() {
@@ -24,7 +22,6 @@ class App extends Component {
     this.createFn = this.createFn.bind(this);
     this.searchFn = this.searchFn.bind(this);
   }
-  // notify = () => toast("wow")
 
   //--------------------COMPONENTDIDMOUNT()------------------------------//
 
@@ -88,8 +85,6 @@ class App extends Component {
     let {userArr} = this.state.userArr
     return (
       <div className="App">
-        {/* <button onClick={this.notify("wow")}>wowz</button>
-        <ToastContainer containerId={'A'}/> */}
         <Header searchFn={this.searchFn} />
         <UserInput
           userArr={userArr}
